@@ -1,8 +1,9 @@
-package com.estudo.CadastroDeNinjas.Missoes;
+package com.estudo.CadastroDeNinjas.Ninjas.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.estudo.CadastroDeNinjas.Ninjas.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,14 +11,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_missoes")
-public class MissoesModel {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class MissaoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     private Long id;
     
     private String nomeDaMissao;
@@ -25,6 +31,6 @@ public class MissoesModel {
     private String dificuldade;
     
     // Uma missão pode ter vários ninjas
-    @OneToMany(mappedBy = "missoes")
-    private List<NinjaModel> ninjas;
+    @OneToMany(mappedBy = "missao")
+    private List<NinjaModel> ninjas = new ArrayList<>();
 } 
