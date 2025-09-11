@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.estudo.CadastroDeNinjas.Ninjas.DTO.MissaoCreateRequest;
@@ -21,11 +23,9 @@ public class MissaoService {
     @Autowired
     private NinjaService ninjaService;
 
-    public List<MissaoResponse> getAllMissoes(){
-        List<MissaoModel> missoes = missaoRepository.findAll();
-        return missoes.stream()
-              .map(MissaoMapper::toResponse)
-              .collect(Collectors.toList());
+    public Page<MissaoResponse> getAllMissoes(Pageable pageable){
+        return missaoRepository.findAll(pageable)
+            .map(MissaoMapper::toResponse);
     }
 
     public MissaoModel createMissao(MissaoModel missao){

@@ -1,8 +1,10 @@
 package com.estudo.CadastroDeNinjas.Ninjas.controller;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,8 +23,8 @@ public class MissaoController {
     private MissaoService missaoService;
 
     @GetMapping
-    public List<MissaoResponse> getMissaoModels() {
-        return missaoService.getAllMissoes();
+    public Page<MissaoResponse> getMissaoModels(@PageableDefault(size = 10) Pageable pageable) {
+        return missaoService.getAllMissoes(pageable);
     }
 
     @PostMapping
