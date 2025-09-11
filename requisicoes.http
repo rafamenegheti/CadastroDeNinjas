@@ -1,0 +1,56 @@
+### Create a new Ninja
+POST http://localhost:8080/ninja
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nome": "Saske Uzumaki",
+  "email":"saske@konoha.com",
+  "idade": 17
+}
+
+### Create a new Ninja with an existing mission (optional)
+POST http://localhost:8080/ninja
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nome": "Sakura Haruno",
+  "email": "sakura@konoha.com",
+  "idade": 17,
+  "missao": { "id": 1 }
+}
+
+### List all Ninjas
+GET http://localhost:8080/ninja
+Accept: application/json
+
+
+
+### Create a new Missao
+POST http://localhost:8080/missao
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nomeDaMissao": "Escoltar o Daimyo",
+  "dificuldade": "B"
+}
+
+
+### Create a new Missao with Ninjas
+POST http://localhost:8080/missao
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nomeDaMissao": "Escoltar o Daimyo",
+  "dificuldade": "B",
+  "ninjaIds": [1, 3]
+}
+
+### List all Missoes
+GET http://localhost:8080/missao
+Accept: application/json
+
+
