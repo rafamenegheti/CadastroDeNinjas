@@ -1,6 +1,5 @@
 package com.estudo.CadastroDeNinjas.Ninjas.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

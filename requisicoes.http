@@ -2,6 +2,7 @@
 POST http://localhost:8080/ninja
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiQURNSU4iLCJpYXQiOjE3NTc1NTkzMzAsImV4cCI6MTc1NzU2MjkzMH0.1JaPUWH9_29LDM7O2t9VY1gWdicTT6MXB1vwrCfs8Uk
 
 {
   "nome": "Saske Uzumaki",
@@ -31,6 +32,7 @@ Accept: application/json
 POST http://localhost:8080/missao
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiQURNSU4iLCJpYXQiOjE3NTc1NTkzMzAsImV4cCI6MTc1NzU2MjkzMH0.1JaPUWH9_29LDM7O2t9VY1gWdicTT6MXB1vwrCfs8Uk
 
 {
   "nomeDaMissao": "Escoltar o Daimyo",
@@ -42,6 +44,7 @@ Accept: application/json
 POST http://localhost:8080/missao
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiQURNSU4iLCJpYXQiOjE3NTc1NTkzMzAsImV4cCI6MTc1NzU2MjkzMH0.1JaPUWH9_29LDM7O2t9VY1gWdicTT6MXB1vwrCfs8Uk
 
 {
   "nomeDaMissao": "Escoltar o Daimyo",
@@ -52,6 +55,27 @@ Accept: application/json
 ### List all Missoes (default)
 GET http://localhost:8080/missao
 Accept: application/json
+
+### Register a user (role defaults to USER; use ADMIN for admin)
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "user 1",
+  "password": "user",
+  "role": "USER"
+}
+
+### Login to obtain a JWT token
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
 
 ### List Missoes - page 0, size 5
 GET http://localhost:8080/missao?page=2&size=2
